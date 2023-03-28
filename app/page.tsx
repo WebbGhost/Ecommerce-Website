@@ -2,17 +2,30 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import axios from "axios";
 import styles from "./page.module.css";
-import ListsProducts from "@/components/ListsProducts";
+import ListsProducts, {
+  Product,
+  ProductsProps,
+} from "@/components/product/ListsProducts";
 
 const inter = Inter({ subsets: ["latin"] });
+
+interface FetchProductResponse {
+  status: string;
+  results: number;
+  product: Product[];
+}
 const getProducts = async () => {
-  const { data } = await axios.get(`${process.env.API_URL}/api/products`);
+  const { data } = await axios.get<FetchProductResponse>(
+    `${process.env.API_URL}/api/products`
+  );
+  return data;
 };
-export default function Home() {
-  const products = getProducts();
+export default async function Home() {
+  const { product } = await getProducts();
+  console.log(product);
   return (
     <main className={styles.main}>
-      <ListsProducts products={products} />
+      <ListsProducts product={product} />
     </main>
   );
 }
