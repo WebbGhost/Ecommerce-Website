@@ -13,14 +13,16 @@ const productSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Please provide price for the product"],
   },
-  images: {
-    public_id: {
-      type: String,
+  images: [
+    {
+      public_id: {
+        type: String,
+      },
+      url: {
+        type: String,
+      },
     },
-    url: {
-      type: String,
-    },
-  },
+  ],
   category: {
     type: String,
 

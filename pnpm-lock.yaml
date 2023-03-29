@@ -16,6 +16,7 @@ specifiers:
   postcss: ^8.4.21
   react: 18.2.0
   react-dom: 18.2.0
+  react-simple-star-rating: ^5.1.7
   react-star-ratings: ^2.3.0
   tailwindcss: ^3.2.7
   typescript: 5.0.2
@@ -31,6 +32,7 @@ dependencies:
   next-connect: 0.13.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-simple-star-rating: 5.1.7_biqbaboplfbrettd7655fr4n2y
   react-star-ratings: 2.3.0
   typescript: 5.0.2
 
@@ -2254,6 +2256,17 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-simple-star-rating/5.1.7_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-NTFkW8W3uwvI82Fv7JW5i7gmDjEZKxJmj+Z9vn+BjYIXT6ILdnU9qnSUP2cWrWN/WAUlue81f9SgM4CQcenltQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-star-ratings/2.3.0:

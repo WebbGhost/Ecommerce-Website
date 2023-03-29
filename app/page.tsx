@@ -6,6 +6,7 @@ import ListsProducts, {
   Product,
   ProductsProps,
 } from "@/components/product/ListsProducts";
+import Filters from "@/components/layout/FilterProducts";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +23,10 @@ const getProducts = async () => {
 };
 export default async function Home() {
   const { product } = await getProducts();
-  console.log(product);
+
   return (
-    <main className={styles.main}>
+    <main className="flex flex-row">
+      <Filters />
       <ListsProducts product={product} />
     </main>
   );

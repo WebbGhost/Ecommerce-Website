@@ -1,15 +1,22 @@
-import React from "react";
+import React, { FC } from "react";
 import ProductItem from "./ProductsItem";
 
 export interface Product {
-  name: string;
   _id: string;
+  name: string;
+  description: string;
+  price: number;
+  seller: string;
+  stocks: number;
+  rating: number;
+  reviews: [string];
+  images: [string];
 }
 export type ProductsProps = {
   product: Product[];
 };
 
-const ListsProducts = ({ product }: Product[]) => {
+const ListsProducts: FC<ProductsProps> = ({ product }) => {
   console.log(product);
   return (
     <div>

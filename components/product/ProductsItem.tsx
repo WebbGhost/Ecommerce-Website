@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
+import React, { FC } from "react";
 import Link from "next/link";
 import StarRatings from "react-star-ratings";
+import { Rating } from "react-simple-star-rating";
 import Image from "next/image";
 import { Product, ProductsProps } from "./ListsProducts";
 
-const ProductItem = ({ product }) => {
+const ProductItem: FC = ({ product }: Product) => {
   return (
     <article className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
       <div className="flex flex-col md:flex-row">
@@ -16,7 +18,13 @@ const ProductItem = ({ product }) => {
               position: "relative",
             }}
           >
-            <Image src="" alt="product anme" height="240" width="240" />
+            <Image
+              src="/No Image.png"
+              alt={product.name}
+              className=""
+              height="260"
+              width="260"
+            />
           </div>
         </div>
         <div className="md:w-2/4">
@@ -27,25 +35,29 @@ const ProductItem = ({ product }) => {
             >
               {product.name}
             </Link>
-            <div className="flex flex-wrap items-center space-x-2 mb-2">
+            <div className="flex flex-row flex-wrap items-center space-x-2 mb-2">
               <div className="ratings">
-                <div className="my-1">
+                <div className="flex flex-row">
                   {/* <StarRatings
-                    rating={product?.ratings}
+                    rating={product?.rating}
                     starRatedColor="#ffb829"
                     numberOfStars={5}
                     starDimension="18px"
                     starSpacing="1px"
                     name="rating"
                   /> */}
+                  <Rating
+                    iconsCount={product?.rating}
+                    className="flex flex-row"
+                    size={22}
+                    style={{ display: "flex", flexDirection: "row" }}
+                  />
                 </div>
               </div>
               <b className="text-gray-300">•</b>
-              <span className="ml-1 text-yellow-500">{product?.ratings}</span>
+              <span className="ml-1 text-yellow-500">{product?.rating}</span>
             </div>
-            <p className="text-gray-500 mb-2">
-              {product?.description.substring(0, 150)}...
-            </p>
+            <p className="text-gray-500 mb-2">{product?.description.sub}</p>
           </div>
         </div>
         <div className="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
