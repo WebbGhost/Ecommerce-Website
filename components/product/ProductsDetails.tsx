@@ -17,12 +17,12 @@ const ProductsDetails = ({ product }: Props) => {
     { name: "Home", url: "/" },
     {
       name: `${product.name}`,
-      url: `/products/${product._id}`,
+      url: `/product/${product._id}`,
     },
   ];
   return (
     <>
-      <TopLinks />
+      <TopLinks topLinks={TOPLINKS} />
       <section className="bg-white py-10">
         <div className="container max-w-screen-xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-5">

@@ -1,5 +1,6 @@
 import Product from "../models/product";
 import { Request, Response, NextFunction } from "express";
+import APIFilters from "../utils/ApiFeatures";
 export const CreateProduct = async (
   req: Request,
   res: Response,
@@ -17,7 +18,20 @@ export const GetAllProducts = async (
   res: Response,
   next: NextFunction
 ) => {
-  const product = await Product.find();
+  const resPerPage = 3;
+  const productsCount = await Product.countDocuments();
+
+  const apiFilters = new APIFilters(Product.find(), req.query)
+    .search()
+    .filter();
+
+  let product = await apiFilters.query;
+  const filteredProductsCount = product.length;
+
+  apiFilters.pagination(resPerPage);
+
+  product = await apiFilters.query.clone();
+
   res.status(200).json({
     status: "Success",
     results: product.length,
