@@ -19,7 +19,7 @@ const ProductItem: FC = ({ product }: Product) => {
             }}
           >
             <Image
-              src="/No Image.png"
+              src={product.images[0] ? product.images[0].url : "/No Image.png"}
               alt={product.name}
               className=""
               height="260"
@@ -57,7 +57,7 @@ const ProductItem: FC = ({ product }: Product) => {
               <b className="text-gray-300">•</b>
               <span className="ml-1 text-yellow-500">{product?.rating}</span>
             </div>
-            <p className="text-gray-500 mb-2">{product?.description.sub}</p>
+            <p className="text-gray-500 mb-2">{product?.description}</p>
           </div>
         </div>
         <div className="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">

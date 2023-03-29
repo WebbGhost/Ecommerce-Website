@@ -6,7 +6,10 @@ const nextConfig = {
   env: {
     MONGODB_URL:
       "mongodb+srv://webghost:nwwXHIQq3bQBHEk8@cluster0.qykfjfg.mongodb.net/Ecommerce?retryWrites=true&w=majority",
-      API_URL: "http://localhost:3000"
+    API_URL: "http://localhost:3000",
+  },
+  images: {
+    domains: ["res.cloudinary.com"],
   },
 };
 

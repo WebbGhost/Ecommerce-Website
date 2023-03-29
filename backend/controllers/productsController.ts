@@ -24,3 +24,16 @@ export const GetAllProducts = async (
     product,
   });
 };
+
+export const GetProductById = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const product = await Product.findById(req.query.id);
+  if (!product) return res.status(404).json({ message: "Not Found" });
+  res.status(200).json({
+    status: "Success",
+    product,
+  });
+};
