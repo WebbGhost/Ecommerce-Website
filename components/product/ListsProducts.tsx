@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import ProductItem from "./ProductsItem";
+import Pagination from "../layout/Pagination";
 
 export interface Product {
   _id: string;
@@ -14,9 +15,15 @@ export interface Product {
 }
 export type ProductsProps = {
   product: Product[];
+  resPerPage: number;
+  productCount: number;
 };
 
-const ListsProducts: FC<ProductsProps> = ({ product }) => {
+const ListsProducts: FC<ProductsProps> = ({
+  product,
+  resPerPage,
+  productCount,
+}) => {
   console.log(product);
   return (
     <div>
@@ -26,6 +33,7 @@ const ListsProducts: FC<ProductsProps> = ({ product }) => {
           <ProductItem product={product} />
         </>
       ))}
+      <Pagination productCount={productCount} resPerPage={resPerPage} />
     </div>
   );
 };

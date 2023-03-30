@@ -11,6 +11,8 @@ interface FetchProductResponse {
   status: string;
   results: number;
   product: Product[];
+  resPerPage: number;
+  productsCount: number;
 }
 const getProducts = async (searchParams: any) => {
   const urlParams = {
@@ -26,12 +28,18 @@ const getProducts = async (searchParams: any) => {
   return data;
 };
 export default async function Home({ searchParams }: any) {
-  const { product } = await getProducts(searchParams);
+  const { product, resPerPage, productsCount } = await getProducts(
+    searchParams
+  );
 
   return (
     <main className="flex flex-row">
       <Filters />
-      <ListsProducts product={product} />
+      <ListsProducts
+        product={product}
+        resPerPage={resPerPage}
+        productCount={productsCount}
+      />
     </main>
   );
 }

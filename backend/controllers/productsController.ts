@@ -36,6 +36,8 @@ export const GetAllProducts = async (
     status: "Success",
     results: product.length,
     product,
+    productsCount,
+    resPerPage,
   });
 };
 
