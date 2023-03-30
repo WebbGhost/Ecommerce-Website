@@ -18,6 +18,8 @@ const getProducts = async (searchParams: any) => {
   const urlParams = {
     keyword: searchParams.keyword,
     page: searchParams.page,
+    category: searchParams.category,
+    "rating[gte]": searchParams.ratings,
   };
 
   const searchQuery = queryString.stringify(urlParams);

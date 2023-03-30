@@ -2,11 +2,11 @@
 import React, { FC } from "react";
 import Link from "next/link";
 import StarRatings from "react-star-ratings";
-import { Rating } from "react-simple-star-rating";
-import Image from "next/image";
-import { Product, ProductsProps } from "./ListsProducts";
 
-const ProductItem: FC = ({ product }: Product) => {
+import Image from "next/image";
+import { Product } from "./ListsProducts";
+
+const ProductItem: FC<Product> = ({ product }) => {
   return (
     <article className="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
       <div className="flex flex-col md:flex-row">
@@ -20,7 +20,7 @@ const ProductItem: FC = ({ product }: Product) => {
           >
             <Image
               src={product.images[0] ? product.images[0].url : "/No Image.png"}
-              alt={product.name}
+              alt="products"
               className=""
               height="260"
               width="260"
@@ -38,20 +38,20 @@ const ProductItem: FC = ({ product }: Product) => {
             <div className="flex flex-row flex-wrap items-center space-x-2 mb-2">
               <div className="ratings">
                 <div className="flex flex-row">
-                  {/* <StarRatings
+                  <StarRatings
                     rating={product?.rating}
                     starRatedColor="#ffb829"
                     numberOfStars={5}
                     starDimension="18px"
                     starSpacing="1px"
                     name="rating"
-                  /> */}
-                  <Rating
+                  />
+                  {/* <Rating
                     iconsCount={product?.rating}
                     className="flex flex-row"
                     size={22}
                     style={{ display: "flex", flexDirection: "row" }}
-                  />
+                  /> */}
                 </div>
               </div>
               <b className="text-gray-300">•</b>

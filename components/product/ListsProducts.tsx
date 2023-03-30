@@ -10,8 +10,8 @@ export interface Product {
   seller: string;
   stocks: number;
   rating: number;
-  reviews: [string];
-  images: [string];
+  reviews?: [string];
+  images?: [string];
 }
 export type ProductsProps = {
   product: Product[];
